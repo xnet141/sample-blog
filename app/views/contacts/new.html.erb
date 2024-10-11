@@ -1,6 +1,6 @@
 <h1>Contact us</h1>
 
-<%= form_for :contact, url: articles_path do |f| %>
+<%= form_for :contact, url: contacts_path, data: {turbo:false} do |f| %>
 	<p>
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>
@@ -11,6 +11,6 @@
 	</p>
 
 	<p>
-		<%= f.submit 'save message' %>
+		<%= f.submit 'send message' %>
 	</p>
 <% end %>
