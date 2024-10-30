@@ -1,9 +1,11 @@
 <% @articles.each do |article| %>
 <h2>
-	Article1: <%= article.title %>
+	Article!!: <%= article.title %>
 </h2>
 <p>
-	<%= article.text %>
+	<%= article.text %> <br />
+	<%= article.user_id %>
+
 </p>
 
 <p>
@@ -13,3 +15,4 @@
 </p>
 <hr />
 <% end %>
+

@@ -1,3 +1,7 @@
+<div class = "container">
+
+
+
 <h1><%= @article.title %></h1>
 <p>
 	<%= @article.text %>
@@ -5,30 +9,53 @@
 
 <h2>Comments</h2>
 
-
 <h2>Add comment</h2>
 
-<% @article.comments.each do |comment| %>
+
+<div class = "row">
+	<div class = "col-xs-6">
+		<ul class="list-group">
+		<% @article.comments.each do |comment| %>									
+			<li class="list-group-item"><i><%= comment.author %> said:</i>	
+			<p>
+			<span class="badge"><%= comment.body %></span>	
+				
+			</p>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+
+	<div class = "col-xs-6">
+	</div>
+</div>
+
+<div class = "row">
+	<div class = "col-xs-6">
 	<p>
-		<i><%= comment.author %> said:</i><br />
-	<%= comment.body %>	
+	<%= form_for ([@article, @article.comments.build]) do |f| %>
+		
+		<p>
+			<%= f.label :body %><br />
+			<%= f.text_area :body %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+		
+	<% end %>
 	</p>
-<% end %>
+	</div>
+
+	<div class = "col-xs-6">
+	</div>	
+</div>
+</div>
+
+test <%= @test %>
 
 
 
-<p>
-<%= form_for ([@article, @article.comments.build]) do |f| %>
+
 	
-	<p>
-		<%= f.label :body %><br />
-		<%= f.text_area :body %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-	
-<% end %>
-</p>
-
